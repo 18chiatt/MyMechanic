@@ -1,0 +1,45 @@
+<div class="header" *ngIf="creatingNew">New Case</div>
+<div class="header" *ngIf="!creatingNew">Edit Case</div>
+
+<hr />
+
+<div class="fields">
+	<mat-form-field appearance="outline" class="field">
+		<mat-label>Make and Model</mat-label>
+		<input type="text" autocomplete="off" matInput [formControl]="makeModelControl" />
+	</mat-form-field>
+
+	<mat-form-field appearance="outline" class="field">
+		<mat-label>Customer Phone Number</mat-label>
+		<input type="text" autocomplete="off" matInput [formControl]="phoneNumberControl" />
+	</mat-form-field>
+
+	<mat-form-field appearance="outline" class="field">
+		<mat-label>Total Quote $</mat-label>
+		<input type="" autocomplete="off" matInput [formControl]="quoteCostControl" />
+	</mat-form-field>
+
+	<mat-form-field appearance="outline" class="field">
+		<mat-label>Service Explination</mat-label>
+		<textarea type="text" rows="15" autocomplete="off" matInput [formControl]="serviceRecommendationControl">
+		</textarea>
+	</mat-form-field>
+
+	<button mat-raised-button color="primary" (click)="imageUpload.click()" class="upload-button">
+		Upload an Image <mat-icon>file_upload</mat-icon>
+	</button>
+
+	<input type="file" #imageUpload style="display: none" accept="image/*" (change)="addImage($event)" />
+
+	<carousel *ngIf="images?.length && !pulse" [cellsToShow]="1" [loop]="true" [dots]="true">
+		<div class="carousel-cell" *ngFor="let image of images">
+			<img src="{{ image }}" width="100%" />
+			<button mat-mini-fab class="remove-image-button" (click)="removeImage(image)"><mat-icon>close</mat-icon></button>
+		</div>
+	</carousel>
+
+	<div *ngIf="pulse" class="counter-pulse"></div>
+	<button mat-raised-button color="primary" (click)="submit()" [disabled]="!group.valid" class="submit-button">
+		Submit <mat-icon>send</mat-icon>
+	</button>
+</div>

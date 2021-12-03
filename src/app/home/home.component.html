@@ -1,0 +1,25 @@
+<div class="header">My Cases</div>
+<hr />
+<mat-card *ngFor="let case of cases" class="case-card">
+	<mat-card-title>{{ case.makeModel }}</mat-card-title>
+	<carousel *ngIf="case.images?.length" [cellsToShow]="1" [loop]="true" [dots]="true">
+		<div class="carousel-cell" *ngFor="let image of case.images">
+			<img src="{{ image }}" height="100%" />
+		</div>
+	</carousel>
+	<img
+		src="https://osbornegroupcre.com/wp-content/uploads/2016/02/missing-image-640x360.png"
+		height="200px"
+		alt=""
+		*ngIf="!case.images?.length"
+		class="image"
+	/>
+	<mat-card-actions align="end">
+		<button mat-raised-button color="primary">
+			Customer View <mat-icon class="smaller-icon">visibility</mat-icon>
+		</button>
+		<button mat-raised-button color="primary" (click)="editTo(case)">
+			Edit <mat-icon class="smaller-icon">edit</mat-icon>
+		</button>
+	</mat-card-actions>
+</mat-card>

@@ -1,10 +1,43 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { NgModule } from "@angular/core";
+import { Routes, RouterModule } from "@angular/router";
+import { CreateComponent } from "./create/create.component";
+import { HomeComponent } from "./home/home.component";
+import { LoginComponent } from "./login/login.component";
+import { SettingsComponent } from "./settings/settings.component";
 
-const routes: Routes = [];
+const routes: Routes = [
+	{
+		path: "home",
+		component: HomeComponent,
+	},
+
+	{
+		path: "create",
+		component: CreateComponent,
+	},
+
+	{
+		path: "create/:editID",
+		component: CreateComponent,
+	},
+	{
+		path: "settings",
+		component: SettingsComponent,
+	},
+
+	{
+		path: "login",
+		component: LoginComponent,
+	},
+
+	{
+		path: "*",
+		redirectTo: "/home",
+	},
+];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+	imports: [RouterModule.forRoot(routes)],
+	exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

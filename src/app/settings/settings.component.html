@@ -1,0 +1,18 @@
+<mat-card>
+	<div class="row">
+		<img src="https://i.imgur.com/JfnU3a9.png" height="50px" width="50px" class="headshot" alt="" />
+		<div class="account-name">Michael Anderson</div>
+	</div>
+	<div class="settings-divider"></div>
+	<div class="settings-row">
+		<div class="prompt">Receive text updates</div>
+		<mat-slide-toggle [formControl]="textsControl"></mat-slide-toggle>
+	</div>
+
+	<div class="settings-row">
+		<div class="prompt">Auto-send customer texts</div>
+		<mat-slide-toggle [formControl]="customerTextsControl"></mat-slide-toggle>
+	</div>
+
+	<button mat-stroked-button class="logout-button" (click)="logout()">Logout <mat-icon>logout</mat-icon></button>
+</mat-card>
