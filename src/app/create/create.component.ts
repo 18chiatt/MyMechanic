@@ -26,6 +26,7 @@ export class CreateComponent implements OnInit {
 		makeModel: this.makeModelControl,
 		customerPhone: this.phoneNumberControl,
 		service: this.serviceRecommendationControl,
+		cost: this.quoteCostControl,
 	});
 	images: any[] = [];
 	creatingNew: boolean = true;

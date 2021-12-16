@@ -1,10 +1,15 @@
 <div class="header">My Cases</div>
 <hr />
-<mat-card *ngFor="let case of cases" class="case-card">
-	<mat-card-title>{{ case.makeModel }}</mat-card-title>
-	<carousel *ngIf="case.images?.length" [cellsToShow]="1" [loop]="true" [dots]="true">
-		<div class="carousel-cell" *ngFor="let image of case.images">
-			<img src="{{ image }}" height="100%" />
+<mat-card *ngFor="let case of cases" class="case-card mat-elevation-z5">
+	<mat-card-title>{{ case.makeModel }} </mat-card-title>
+	<mat-card-subtitle>${{ case.cost }}</mat-card-subtitle>
+
+	<app-carousel-mechanic [images]="case.images"></app-carousel-mechanic>
+	<!-- <carousel *ngIf="case.images?.length" [cellsToShow]="1" [loop]="true" [dots]="true">
+		<div class="carousel-cell" *ngFor="let image of case.images" (click)="openDialog(image)" >
+			<pinch-zoom [autoHeight]="true">
+				<img src="{{ image }}" class="image" height="100%" />
+			</pinch-zoom>
 		</div>
 	</carousel>
 	<img
@@ -13,13 +18,27 @@
 		alt=""
 		*ngIf="!case.images?.length"
 		class="image"
-	/>
-	<mat-card-actions align="end">
-		<button mat-raised-button color="primary">
-			Customer View <mat-icon class="smaller-icon">visibility</mat-icon>
+		(click)="customerView(case)"
+	/> -->
+
+	<mat-menu #menu="matMenu" class="matMenuPanelClass">
+		<a mat-menu-item color="primary" class="menu-button" href="tel:{{ case.customerPhone }}">Call Customer</a>
+		<button mat-menu-item color="primary" (click)="editTo(case)" class="menu-button">Edit Case</button>
+	</mat-menu>
+
+	<button mat-icon-button class="top-right" [matMenuTriggerFor]="menu" (click)="$event.stopPropagation()">
+		<mat-icon>more_vert</mat-icon>
+	</button>
+	<div class="right-align">
+		<button
+			mat-raised-button
+			color="primary"
+			[cdkCopyToClipboard]="copyLink(case)"
+			(click)="announce()"
+			class="right-margin"
+		>
+			Copy Link
 		</button>
-		<button mat-raised-button color="primary" (click)="editTo(case)">
-			Edit <mat-icon class="smaller-icon">edit</mat-icon>
-		</button>
-	</mat-card-actions>
+		<button mat-raised-button color="primary" (click)="customerView(case)">Customer View</button>
+	</div>
 </mat-card>

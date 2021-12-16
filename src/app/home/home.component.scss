@@ -5,6 +5,7 @@
 
 .case-card {
 	margin-top: 20px;
+	margin-bottom: 20px;
 }
 
 .smaller-icon {
@@ -15,8 +16,34 @@
 .image {
 	border-radius: 4px;
 	max-width: 100%;
-	margin: 10px auto 10px auto;
+	margin: auto;
 }
 
-.cauroselImage {
+.menu-button {
+	text-align: left;
+	padding-right: 20px;
+}
+
+.top-right {
+	position: absolute;
+	top: 3px;
+	right: 3px;
+}
+
+.clickable {
+	cursor: pointer;
+}
+
+.margin-bottom {
+	margin-bottom: 10px;
+}
+
+.right-align {
+	display: flex;
+	justify-content: flex-end;
+	margin-top: 15px;
+}
+
+.right-margin {
+	margin-right: 10px;
 }

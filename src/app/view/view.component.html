@@ -1,0 +1,30 @@
+<div *ngIf="myCase">
+	<div class="page-header">Your Quote:</div>
+	<mat-card class="mat-elevation-z5">
+		<mat-card-header>
+			<img mat-card-avatar class="headshot my-headshot" src="{{ image }}" />
+			<mat-card-title>{{ myCase.makeModel }}</mat-card-title>
+			<mat-card-subtitle>${{ myCase.cost }}</mat-card-subtitle>
+		</mat-card-header>
+		<mat-card-content>
+			<app-carousel-mechanic [images]="myCase.images"></app-carousel-mechanic>
+		</mat-card-content>
+		<p class="prewrap">{{ myCase.service }}</p>
+
+		<mat-card-actions align="end">
+			<a mat-button href="tel:8014992598">Call Mechanic</a>
+			<button mat-raised-button color="primary">Approve Service</button>
+		</mat-card-actions>
+	</mat-card>
+</div>
+
+<div *ngIf="!myCase" class="centerer"><mat-spinner></mat-spinner></div>
+
+<!-- export interface Case {
+	makeModel: string;
+	customerPhone: string;
+	service: string;
+	images: string[];
+	id: string;
+	cost: string;
+} -->

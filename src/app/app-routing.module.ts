@@ -4,6 +4,7 @@ import { CreateComponent } from "./create/create.component";
 import { HomeComponent } from "./home/home.component";
 import { LoginComponent } from "./login/login.component";
 import { SettingsComponent } from "./settings/settings.component";
+import { ViewComponent } from "./view/view.component";
 
 const routes: Routes = [
 	{
@@ -31,8 +32,13 @@ const routes: Routes = [
 	},
 
 	{
-		path: "*",
-		redirectTo: "/home",
+		path: "view/:id",
+		component: ViewComponent,
+	},
+
+	{
+		path: "**",
+		redirectTo: "home",
 	},
 ];
 

@@ -20,7 +20,7 @@
 	</mat-form-field>
 
 	<mat-form-field appearance="outline" class="field">
-		<mat-label>Service Explination</mat-label>
+		<mat-label>Service Explanation</mat-label>
 		<textarea type="text" rows="15" autocomplete="off" matInput [formControl]="serviceRecommendationControl">
 		</textarea>
 	</mat-form-field>
@@ -40,6 +40,6 @@
 
 	<div *ngIf="pulse" class="counter-pulse"></div>
 	<button mat-raised-button color="primary" (click)="submit()" [disabled]="!group.valid" class="submit-button">
-		Submit <mat-icon>send</mat-icon>
+		{{ creatingNew ? "Create Case" : "Update Case " }} <mat-icon>send</mat-icon>
 	</button>
 </div>

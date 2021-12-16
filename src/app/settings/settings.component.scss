@@ -15,6 +15,7 @@
 .settings-row {
 	display: flex;
 	justify-content: space-between;
+	margin-bottom: 20px;
 }
 
 .settings-divider {
@@ -26,4 +27,16 @@
 	margin-top: 20px;
 	color: red;
 	border-color: red;
+}
+
+.upload-button {
+	width: 100%;
+	margin-bottom: 20px;
+}
+
+.full-width {
+	width: 100%;
+}
+.bordered {
+	border-color: #2196f3;
 }

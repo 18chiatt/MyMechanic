@@ -17,9 +17,27 @@ import { IvyCarouselModule } from "angular-responsive-carousel";
 import { SettingsComponent } from "./settings/settings.component";
 import { MatSlideToggleModule } from "@angular/material/slide-toggle";
 import { LoginComponent } from "./login/login.component";
+import { MatMenuModule } from "@angular/material/menu";
+import { ViewComponent } from "./view/view.component";
+import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
+import { MatSnackBarModule } from "@angular/material/snack-bar";
+import { ClipboardModule } from "@angular/cdk/clipboard";
+import { PinchZoomModule } from "ngx-pinch-zoom";
+import { MatDialogModule } from "@angular/material/dialog";
+import { CarouselComponent } from "./carousel/carousel.component";
+import { DialogComponent } from "./carousel/dialog/dialog.component";
 
 @NgModule({
-	declarations: [AppComponent, HomeComponent, CreateComponent, SettingsComponent, LoginComponent],
+	declarations: [
+		AppComponent,
+		HomeComponent,
+		CreateComponent,
+		SettingsComponent,
+		LoginComponent,
+		ViewComponent,
+		CarouselComponent,
+		DialogComponent,
+	],
 	imports: [
 		BrowserModule,
 		AppRoutingModule,
@@ -34,6 +52,12 @@ import { LoginComponent } from "./login/login.component";
 		MatInputModule,
 		IvyCarouselModule,
 		MatSlideToggleModule,
+		MatMenuModule,
+		MatProgressSpinnerModule,
+		MatSnackBarModule,
+		ClipboardModule,
+		PinchZoomModule,
+		MatDialogModule,
 	],
 	providers: [],
 	bootstrap: [AppComponent],

@@ -1,4 +1,6 @@
-<div class="header">MyMechanic <mat-icon inline class="icon">build</mat-icon></div>
+<div class="header">
+	<div class="header-holder">MyMechanic <mat-icon inline class="icon">build</mat-icon></div>
+</div>
 
 <div class="holder">
 	<router-outlet></router-outlet>
@@ -6,13 +8,13 @@
 
 <div class="nav-footer" *ngIf="showFooter">
 	<button mat-icon-button>
-		<mat-icon [routerLink]="['/home']">home</mat-icon>
+		<mat-icon [routerLink]="['/home']" class="nav-icon">home</mat-icon>
 	</button>
 	<button mat-icon-button>
-		<mat-icon [routerLink]="['/create']">add_circle_outline</mat-icon>
+		<mat-icon [routerLink]="['/create']" class="nav-icon">add_circle_outline</mat-icon>
 	</button>
 
 	<button mat-icon-button>
-		<mat-icon [routerLink]="['/settings']">settings</mat-icon>
+		<mat-icon [routerLink]="['/settings']" class="nav-icon">settings</mat-icon>
 	</button>
 </div>

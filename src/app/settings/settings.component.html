@@ -1,9 +1,22 @@
-<mat-card>
+<mat-card class="mat-elevation-z5">
 	<div class="row">
-		<img src="https://i.imgur.com/JfnU3a9.png" height="50px" width="50px" class="headshot" alt="" />
-		<div class="account-name">Michael Anderson</div>
+		<img src="{{ profilePic }}" height="50px" width="50px" class="headshot" alt="" />
+		<div class="account-name">{{ profileName }}</div>
 	</div>
+
 	<div class="settings-divider"></div>
+
+	<button mat-stroked-button color="primary" (click)="imageUpload.click()" class="upload-button">
+		Change Profile Picture <mat-icon>file_upload</mat-icon>
+	</button>
+
+	<input type="file" #imageUpload style="display: none" accept="image/*" (change)="addImage($event)" />
+
+	<mat-form-field appearance="outline" class="full-width">
+		<mat-label>Change Username</mat-label>
+		<input type="text" matInput [formControl]="usernameControl" class="bordered" />
+		<button mat-icon-button matSuffix (click)="saveUsername()"><mat-icon color="primary">save</mat-icon></button>
+	</mat-form-field>
 	<div class="settings-row">
 		<div class="prompt">Receive text updates</div>
 		<mat-slide-toggle [formControl]="textsControl"></mat-slide-toggle>
